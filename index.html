@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>言语 N-back · pre</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-screen="setup">
+  <main id="setup" class="shell">
+    <header>
+      <p class="eyebrow">工作记忆实验</p>
+      <h1>言语 N-back<span>pre</span></h1>
+      <p class="lead">三个记忆任务，按原程序随机排序。</p>
+    </header>
+    <div class="facts"><span><strong>3</strong> 个 block</span><span><strong>222</strong> 次呈现</span><span><strong>约 10 分钟</strong> 加自主休息</span></div>
+    <aside class="notice">本版已完成指导语文本化与按键修订：一致按 Z，不一致按 /，空格键继续；实验完成自动导出 CSV。调试模式固定运行 1-back 的前 5 个 trial，并明确标记调试数据。</aside>
+    <form id="participant-form">
+      <h2>开始前</h2>
+      <p class="muted">请使用电脑键盘。本地运行会保存到当前浏览器；MindProbe 运行会同时保存到 JATOS。</p>
+      <div class="form-grid">
+        <label>被试编号<input name="Subject" type="text" inputmode="numeric" pattern="[0-9]+" value="1" required autocomplete="off"><small>0–32767；0 为不记录模式</small></label>
+        <label>会话编号<input name="Session" type="text" inputmode="numeric" pattern="[0-9]+" value="1" required autocomplete="off"><small>1–32767</small></label>
+        <label>姓名<input name="Name" maxlength="255" autocomplete="off"><small>沿用原程序字段，可留空</small></label>
+        <label>年龄<input name="Age" type="number" min="0" max="150" step="1" value="0" required><small>0–150</small></label>
+        <label>性别<select name="Sex"><option value="male">男</option><option value="female">女</option></select></label>
+        <label>惯用手<select name="Handedness"><option value="left">左手</option><option value="right">右手</option></select></label>
+      </div>
+      <p id="load-status" class="muted" role="status">正在加载原始材料…</p>
+      <p id="setup-error" class="error" role="alert" hidden></p>
+      <div class="actions"><button id="start" type="submit" disabled>进入实验</button><button id="debug-mode" type="button" class="secondary" aria-pressed="false" disabled>进入调试 mode</button><button id="fullscreen" type="button" class="secondary">切换全屏</button></div>
+      <p id="debug-status" class="caption" role="status" hidden></p>
+      <p class="caption">指导与休息页按 空格键 继续，试次使用 Z / / 键。开始后请保持页面可见。</p>
+    </form>
+    <details id="history"><summary>本机已保存的运行记录</summary><div id="history-list" class="history-list"></div></details>
+    <footer>N-BACK_pre · 0.4.0-jatos.1 <a href="README.md" target="_blank" rel="noopener">运行说明</a></footer>
+  </main>
+  <section id="experiment" hidden aria-label="实验呈现区域"><canvas id="stage" width="1024" height="768" tabindex="-1" aria-label="实验画面"></canvas></section>
+  <main id="finished" class="shell" hidden>
+    <p class="eyebrow">运行结束</p><h1 id="finish-title">谢谢参与</h1>
+    <p id="finish-status" class="lead"></p><p id="save-status" role="status"></p>
+    <div id="export-actions" class="actions"><button id="download-csv">导出 CSV</button><button id="download-json" class="secondary">导出完整 JSON</button></div>
+    <p class="muted">JSON 包含原始按键事件和时序记录。刷新页面可以查看本机保存的记录并开始新的运行。</p>
+    <button id="new-run" class="secondary">返回开始页</button>
+  </main>
+  <noscript>请启用 JavaScript 后运行实验。</noscript>
+  <script>window.NBACK_STORAGE_BACKEND = 'local';</script>
+  <script src="standalone.js"></script>
+</body>
+</html>

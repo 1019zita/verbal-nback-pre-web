@@ -1,0 +1,1244 @@
+'
+'
+'
+'	C:\Users\Administrator\Desktop\ µ—È»˝\—‘”ÔN-back\N-BACK_pre.ebs
+'	Generated on: 11/7/2018	11:31:50
+'
+'
+'	This file generated with E-Studio interface.
+'	E-Prime Copyright © 2002 Psychology Software Tools.
+'	ALL RIGHTS RESERVED
+
+'	Legal use of this experiment script requires a full E-Prime or Runtime License.
+'
+'
+'	Author:
+'		Windows User (SWU)
+'
+'
+'
+'
+
+Option CStrings On
+Dim ebContext as Context
+
+
+'--------------------------------------------------------------------------
+' Class Declarations
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+'InitImageDisplayDefaults
+'--------------------------------------------------------------------------
+Sub InitImageDisplayDefaults(theImageDisplay As ImageDisplay)
+
+	If theImageDisplay Is Nothing Then Exit Sub
+
+	theImageDisplay.X = "center"
+	theImageDisplay.Y = "center"
+	theImageDisplay.Width = "100%"
+	theImageDisplay.Height = "100%"
+	theImageDisplay.BackColor = CColor("black")
+	theImageDisplay.BackStyle = "opaque"
+	theImageDisplay.BorderColor = CColor("black")
+	theImageDisplay.BorderWidth = CLng("0")
+	theImageDisplay.XAlign = "center"
+	theImageDisplay.YAlign = "center"
+	theImageDisplay.AlignHorizontal = "center"
+	theImageDisplay.AlignVertical = "center"
+	theImageDisplay.ClearAfter = CLogical("No")
+	theImageDisplay.UseSourceColorKey = CLogical("No")
+	theImageDisplay.SourceColorKey = CColor("black")
+	theImageDisplay.MirrorLeftRight = CLogical("No")
+	theImageDisplay.MirrorUpDown = CLogical("No")
+	theImageDisplay.Stretch = CLogical("No")
+
+End Sub
+
+
+
+
+
+
+'--------------------------------------------------------------------------
+'InitTextDisplayDefaults
+'--------------------------------------------------------------------------
+Sub InitTextDisplayDefaults(theTextDisplay As TextDisplay)
+
+	If theTextDisplay Is Nothing Then Exit Sub
+
+	theTextDisplay.X = "center"
+	theTextDisplay.Y = "center"
+	theTextDisplay.Width = "100%"
+	theTextDisplay.Height = "100%"
+	theTextDisplay.ForeColor = CColor("black")
+	theTextDisplay.BackColor = CColor("white")
+	theTextDisplay.BackStyle = "opaque"
+	theTextDisplay.BorderColor = CColor("black")
+	theTextDisplay.BorderWidth = CLng("0")
+	theTextDisplay.XAlign = "center"
+	theTextDisplay.YAlign = "center"
+	theTextDisplay.AlignHorizontal = "center"
+	theTextDisplay.AlignVertical = "center"
+	theTextDisplay.WordWrap = True
+	theTextDisplay.ClearAfter = CLogical("No")
+	theTextDisplay.FontName = "Courier New"
+	theTextDisplay.FontSize = "18"
+	theTextDisplay.FontBold = CLogical("Yes")
+	theTextDisplay.FontItalic = CLogical("No")
+	theTextDisplay.FontUnderline = CLogical("No")
+	theTextDisplay.FontStrikeout = CLogical("No")
+
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+'--------------------------------------------------------------------------
+' Instance Declarations
+'--------------------------------------------------------------------------
+Dim Display As DisplayDevice
+Dim Sound As SoundDevice
+Dim Keyboard As KeyboardDevice
+Dim Mouse As MouseDevice
+Dim SessionProc As Procedure
+
+Dim List1 As List
+
+Dim instruction As ImageDisplay
+Dim instructionEchoClients As EchoClientCollection
+
+Dim procA As Procedure
+
+Dim procC As Procedure
+
+Dim procE As Procedure
+
+Dim cueone As ImageDisplay
+Dim cueoneEchoClients As EchoClientCollection
+
+Dim oneback As List
+
+Dim trialproc As Procedure
+
+Dim prob As TextDisplay
+Dim probEchoClients As EchoClientCollection
+
+Dim cuetwo As ImageDisplay
+Dim cuetwoEchoClients As EchoClientCollection
+
+Dim twoback As List
+
+Dim cuethree As ImageDisplay
+Dim cuethreeEchoClients As EchoClientCollection
+
+Dim threeback As List
+
+Dim rest As ImageDisplay
+Dim restEchoClients As EchoClientCollection
+
+Dim rest1 As ImageDisplay
+Dim rest1EchoClients As EchoClientCollection
+
+Dim rest2 As ImageDisplay
+Dim rest2EchoClients As EchoClientCollection
+
+Dim ImageDisplay1 As ImageDisplay
+Dim ImageDisplay1EchoClients As EchoClientCollection
+
+Dim ImageDisplay2 As ImageDisplay
+Dim ImageDisplay2EchoClients As EchoClientCollection
+
+
+
+'--------------------------------------------------------------------------
+' Package Declare Script
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' User Script
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' Package Global Script
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' Package Routines
+'--------------------------------------------------------------------------
+
+
+
+'--------------------------------------------------------------------------
+' Implementation
+'--------------------------------------------------------------------------
+Sub SessionProc_Run(c as Context)
+	
+	
+	instruction.InputMasks.Reset
+	
+	instructionEchoClients.RemoveAll
+	instruction.InputMasks.Add Keyboard.CreateInputMask("s", "", CLng(instruction.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	instruction.Run
+	List1.Run c
+	
+	
+	ImageDisplay1.InputMasks.Reset
+	
+	ImageDisplay1EchoClients.RemoveAll
+	ImageDisplay1.InputMasks.Add Keyboard.CreateInputMask("{ANY}", "", CLng(ImageDisplay1.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	ImageDisplay1.Run
+
+	c.Log
+End Sub
+
+Sub procA_Run(c as Context)
+	
+	
+	cueone.InputMasks.Reset
+	
+	cueoneEchoClients.RemoveAll
+	cueone.InputMasks.Add Keyboard.CreateInputMask("s", "", CLng(cueone.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	cueone.Run
+	oneback.Run c
+	
+	
+	rest.InputMasks.Reset
+	
+	restEchoClients.RemoveAll
+	rest.InputMasks.Add Keyboard.CreateInputMask("s", "", CLng(rest.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	rest.Run
+
+	c.Log
+End Sub
+
+Sub procC_Run(c as Context)
+	
+	
+	cuethree.InputMasks.Reset
+	
+	cuethreeEchoClients.RemoveAll
+	cuethree.InputMasks.Add Keyboard.CreateInputMask("s", "", CLng(cuethree.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	cuethree.Run
+	threeback.Run c
+	
+	
+	rest1.InputMasks.Reset
+	
+	rest1EchoClients.RemoveAll
+	rest1.InputMasks.Add Keyboard.CreateInputMask("s", "", CLng(rest1.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	rest1.Run
+
+	c.Log
+End Sub
+
+Sub procE_Run(c as Context)
+	
+	
+	cuetwo.InputMasks.Reset
+	
+	cuetwoEchoClients.RemoveAll
+	cuetwo.InputMasks.Add Keyboard.CreateInputMask("s", "", CLng(cuetwo.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	cuetwo.Run
+	twoback.Run c
+	
+	
+	rest2.InputMasks.Reset
+	
+	rest2EchoClients.RemoveAll
+	rest2.InputMasks.Add Keyboard.CreateInputMask("s", "", CLng(rest2.Duration), CLng("1"), ebEndResponseActionTerminate, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	rest2.Run
+
+	c.Log
+End Sub
+
+Sub trialproc_Run(c as Context)
+	
+	ImageDisplay2.Filename = c.GetAttrib("sti")
+	ImageDisplay2.Load
+	
+	ImageDisplay2.InputMasks.Reset
+	
+	ImageDisplay2EchoClients.RemoveAll
+	ImageDisplay2.InputMasks.Add Keyboard.CreateInputMask("fj", c.GetAttrib("answer"), CLng("2500"), CLng("1"), ebEndResponseActionNone, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	ImageDisplay2.Run
+	c.SetAttrib "ImageDisplay2.OnsetDelay", ImageDisplay2.OnsetDelay
+	c.SetAttrib "ImageDisplay2.OnsetTime", ImageDisplay2.OnsetTime
+	c.SetAttrib "ImageDisplay2.DurationError", ImageDisplay2.DurationError
+	c.SetAttrib "ImageDisplay2.RTTime", ImageDisplay2.RTTime
+	c.SetAttrib "ImageDisplay2.ACC", ImageDisplay2.ACC
+	c.SetAttrib "ImageDisplay2.RT", ImageDisplay2.RT
+	c.SetAttrib "ImageDisplay2.RESP", ImageDisplay2.RESP
+	c.SetAttrib "ImageDisplay2.CRESP", ImageDisplay2.CRESP
+	
+	
+	
+	prob.InputMasks.Reset
+	
+	probEchoClients.RemoveAll
+	prob.InputMasks.Add Keyboard.CreateInputMask("fj", c.GetAttrib("answer"), CLng(prob.Duration), CLng("1"), ebEndResponseActionNone, CLogical("Yes"), "", "", "ResponseMode:All ProcessBackspace:Yes")
+
+	
+	prob.Run
+	c.SetAttrib "ImageDisplay2.OnsetDelay", ImageDisplay2.OnsetDelay
+	c.SetAttrib "ImageDisplay2.OnsetTime", ImageDisplay2.OnsetTime
+	c.SetAttrib "ImageDisplay2.DurationError", ImageDisplay2.DurationError
+	c.SetAttrib "ImageDisplay2.RTTime", ImageDisplay2.RTTime
+	c.SetAttrib "ImageDisplay2.ACC", ImageDisplay2.ACC
+	c.SetAttrib "ImageDisplay2.RT", ImageDisplay2.RT
+	c.SetAttrib "ImageDisplay2.RESP", ImageDisplay2.RESP
+	c.SetAttrib "ImageDisplay2.CRESP", ImageDisplay2.CRESP
+	
+
+	c.Log
+End Sub
+
+
+
+'--------------------------------------------------------------------------
+' InitDevices
+'
+'--------------------------------------------------------------------------
+Sub InitDevices(c As Context)
+
+
+
+	SetOSThreadPriority 3
+
+
+	Set Display = New DisplayDevice
+	Display.Name = "Display"
+
+	Dim DisplayDisplayDeviceInfo As DisplayDeviceInfo
+	DisplayDisplayDeviceInfo.XRes = 1024
+	DisplayDisplayDeviceInfo.YRes = 768
+	DisplayDisplayDeviceInfo.ColorDepth = 32
+	DisplayDisplayDeviceInfo.RefreshRate = 0
+	DisplayDisplayDeviceInfo.NumPages = 0
+
+	Display.Open DisplayDisplayDeviceInfo
+	c.SetAttrib "Display.RefreshRate", Format$(Display.CalculatedRefreshRate, "0.000")
+
+	Set Sound = New SoundDevice
+	Sound.Name = "Sound"
+
+	Dim SoundSoundOutDeviceInfo As SoundDeviceInfo
+	SoundSoundOutDeviceInfo.Channels = 2
+	SoundSoundOutDeviceInfo.SamplesPerSecond = 22050
+	SoundSoundOutDeviceInfo.BitsPerSample = 16
+	
+	Set Keyboard = New KeyboardDevice
+	Keyboard.Name = "Keyboard"
+
+	Dim KeyboardKeyboardDeviceInfo as KeyboardDeviceInfo
+	KeyboardKeyboardDeviceInfo.CollectionMode = ebPressesOnly
+	KeyboardKeyboardDeviceInfo.CapsLock = ebCapsLockOff
+	KeyboardKeyboardDeviceInfo.NumLock = ebNumLockOn
+	Keyboard.Open KeyboardKeyboardDeviceInfo
+	
+	Set Mouse = New MouseDevice
+	Mouse.Name = "Mouse"
+
+	Dim MouseMouseDeviceInfo as MouseDeviceInfo
+	MouseMouseDeviceInfo.OpenMode = ebMouseOpenModeDirect
+	MouseMouseDeviceInfo.CollectionMode = ebPressesOnly
+	MouseMouseDeviceInfo.ShowCursor = False
+	Mouse.Open MouseMouseDeviceInfo
+
+
+	SetOSThreadPriority 0
+
+End Sub
+
+
+
+'--------------------------------------------------------------------------
+' InitObjects
+'
+'--------------------------------------------------------------------------
+Sub InitObjects(c As Context)
+
+	Set SessionProc = New Procedure
+	SessionProc.Name = "SessionProc"
+	SessionProc.Tag = ""
+	SessionProc.Subroutine = "SessionProc_Run"
+
+	Set List1 = New List
+	List1.Name = "List1"
+	List1.Tag = ""
+
+	'Initialization for List1
+	
+	Set List1.Order = New RandomOrder
+	Set List1.Deletion = NoDeletion
+	List1.ResetEveryRun = False
+
+	' Create the column headings
+	List1.Filename = ""
+	List1.LoadMethod = ebLoadMethodEmbedded
+
+	List1.Load
+
+	Set List1.TerminateCondition = Cycles(1)
+	Set List1.ResetCondition = Samples(3)
+	List1.Reset
+	
+	Set instruction = New ImageDisplay
+	instruction.Name = "instruction"
+	instruction.Tag = ""
+
+	Set instructionEchoClients = New EchoClientCollection
+	instruction.Filename = "introduction.bmp"
+	instruction.Load
+
+	InitImageDisplayDefaults instruction
+
+	instruction.Stretch = CLogical("Yes")
+	instruction.Duration = CLng("-1")
+	instruction.TimingMode = ebTimingModeEvent
+	instruction.PreRelease = Val("0")
+
+	instruction.OnsetSync = 1
+	instruction.OffsetSync = 0
+
+	Set procA = New Procedure
+	procA.Name = "procA"
+	procA.Tag = ""
+	procA.Subroutine = "procA_Run"
+
+	Set procC = New Procedure
+	procC.Name = "procC"
+	procC.Tag = ""
+	procC.Subroutine = "procC_Run"
+
+	Set procE = New Procedure
+	procE.Name = "procE"
+	procE.Tag = ""
+	procE.Subroutine = "procE_Run"
+
+	Set cueone = New ImageDisplay
+	cueone.Name = "cueone"
+	cueone.Tag = ""
+
+	Set cueoneEchoClients = New EchoClientCollection
+	cueone.Filename = "1back.bmp"
+	cueone.Load
+
+	InitImageDisplayDefaults cueone
+
+	cueone.Stretch = CLogical("Yes")
+	cueone.Duration = CLng("-1")
+	cueone.TimingMode = ebTimingModeEvent
+	cueone.PreRelease = Val("0")
+
+	cueone.OnsetSync = 1
+	cueone.OffsetSync = 0
+
+	Set oneback = New List
+	oneback.Name = "oneback"
+	oneback.Tag = ""
+
+	'Initialization for oneback
+	
+	Set oneback.Order = New SequentialOrder
+	Set oneback.Deletion = NoDeletion
+	oneback.ResetEveryRun = False
+
+	' Create the column headings
+	oneback.AddAttrib "sti"
+	oneback.AddAttrib "answer"
+	oneback.Filename = ""
+	oneback.LoadMethod = ebLoadMethodEmbedded
+
+	oneback.Load
+
+	Set oneback.TerminateCondition = Cycles(1)
+	Set oneback.ResetCondition = Samples(73)
+	oneback.Reset
+	
+	Set trialproc = New Procedure
+	trialproc.Name = "trialproc"
+	trialproc.Tag = ""
+	trialproc.Subroutine = "trialproc_Run"
+
+	Set prob = New TextDisplay
+	prob.Name = "prob"
+	prob.Tag = ""
+
+	Set probEchoClients = New EchoClientCollection
+
+	InitTextDisplayDefaults prob
+
+	prob.Text = ""
+	prob.BackColor = CColor("black")
+	prob.Duration = CLng("2000")
+	prob.TimingMode = ebTimingModeEvent
+	prob.PreRelease = Val("0")
+
+	prob.OnsetSync = 1
+	prob.OffsetSync = 0
+
+	Set cuetwo = New ImageDisplay
+	cuetwo.Name = "cuetwo"
+	cuetwo.Tag = ""
+
+	Set cuetwoEchoClients = New EchoClientCollection
+	cuetwo.Filename = "2back.bmp"
+	cuetwo.Load
+
+	InitImageDisplayDefaults cuetwo
+
+	cuetwo.Stretch = CLogical("Yes")
+	cuetwo.Duration = CLng("-1")
+	cuetwo.TimingMode = ebTimingModeEvent
+	cuetwo.PreRelease = Val("0")
+
+	cuetwo.OnsetSync = 1
+	cuetwo.OffsetSync = 0
+
+	Set twoback = New List
+	twoback.Name = "twoback"
+	twoback.Tag = ""
+
+	'Initialization for twoback
+	
+	Set twoback.Order = New SequentialOrder
+	Set twoback.Deletion = NoDeletion
+	twoback.ResetEveryRun = False
+
+	' Create the column headings
+	twoback.AddAttrib "sti"
+	twoback.AddAttrib "answer"
+	twoback.Filename = ""
+	twoback.LoadMethod = ebLoadMethodEmbedded
+
+	twoback.Load
+
+	Set twoback.TerminateCondition = Cycles(1)
+	Set twoback.ResetCondition = Samples(74)
+	twoback.Reset
+	
+	Set cuethree = New ImageDisplay
+	cuethree.Name = "cuethree"
+	cuethree.Tag = ""
+
+	Set cuethreeEchoClients = New EchoClientCollection
+	cuethree.Filename = "3back.bmp"
+	cuethree.Load
+
+	InitImageDisplayDefaults cuethree
+
+	cuethree.Stretch = CLogical("Yes")
+	cuethree.Duration = CLng("-1")
+	cuethree.TimingMode = ebTimingModeEvent
+	cuethree.PreRelease = Val("0")
+
+	cuethree.OnsetSync = 1
+	cuethree.OffsetSync = 0
+
+	Set threeback = New List
+	threeback.Name = "threeback"
+	threeback.Tag = ""
+
+	'Initialization for threeback
+	
+	Set threeback.Order = New SequentialOrder
+	Set threeback.Deletion = NoDeletion
+	threeback.ResetEveryRun = False
+
+	' Create the column headings
+	threeback.AddAttrib "sti"
+	threeback.AddAttrib "answer"
+	threeback.Filename = ""
+	threeback.LoadMethod = ebLoadMethodEmbedded
+
+	threeback.Load
+
+	Set threeback.TerminateCondition = Cycles(1)
+	Set threeback.ResetCondition = Samples(75)
+	threeback.Reset
+	
+	Set rest = New ImageDisplay
+	rest.Name = "rest"
+	rest.Tag = ""
+
+	Set restEchoClients = New EchoClientCollection
+	rest.Filename = "rest.bmp"
+	rest.Load
+
+	InitImageDisplayDefaults rest
+
+	rest.Duration = CLng("-1")
+	rest.TimingMode = ebTimingModeEvent
+	rest.PreRelease = Val("0")
+
+	rest.OnsetSync = 1
+	rest.OffsetSync = 0
+
+	Set rest1 = New ImageDisplay
+	rest1.Name = "rest1"
+	rest1.Tag = ""
+
+	Set rest1EchoClients = New EchoClientCollection
+	rest1.Filename = "rest.bmp"
+	rest1.Load
+
+	InitImageDisplayDefaults rest1
+
+	rest1.Duration = CLng("-1")
+	rest1.TimingMode = ebTimingModeEvent
+	rest1.PreRelease = Val("0")
+
+	rest1.OnsetSync = 1
+	rest1.OffsetSync = 0
+
+	Set rest2 = New ImageDisplay
+	rest2.Name = "rest2"
+	rest2.Tag = ""
+
+	Set rest2EchoClients = New EchoClientCollection
+	rest2.Filename = "rest.bmp"
+	rest2.Load
+
+	InitImageDisplayDefaults rest2
+
+	rest2.Duration = CLng("-1")
+	rest2.TimingMode = ebTimingModeEvent
+	rest2.PreRelease = Val("0")
+
+	rest2.OnsetSync = 1
+	rest2.OffsetSync = 0
+
+	Set ImageDisplay1 = New ImageDisplay
+	ImageDisplay1.Name = "ImageDisplay1"
+	ImageDisplay1.Tag = ""
+
+	Set ImageDisplay1EchoClients = New EchoClientCollection
+	ImageDisplay1.Filename = "end.bmp"
+	ImageDisplay1.Load
+
+	InitImageDisplayDefaults ImageDisplay1
+
+	ImageDisplay1.Duration = CLng("-1")
+	ImageDisplay1.TimingMode = ebTimingModeEvent
+	ImageDisplay1.PreRelease = Val("0")
+
+	ImageDisplay1.OnsetSync = 1
+	ImageDisplay1.OffsetSync = 0
+
+	Set ImageDisplay2 = New ImageDisplay
+	ImageDisplay2.Name = "ImageDisplay2"
+	ImageDisplay2.Tag = ""
+
+	Set ImageDisplay2EchoClients = New EchoClientCollection
+
+	InitImageDisplayDefaults ImageDisplay2
+
+	ImageDisplay2.BackColor = CColor("white")
+	ImageDisplay2.Duration = CLng("500")
+	ImageDisplay2.TimingMode = ebTimingModeEvent
+	ImageDisplay2.PreRelease = Val("0")
+
+	ImageDisplay2.OnsetSync = 1
+	ImageDisplay2.OffsetSync = 0
+
+
+End Sub
+
+
+'--------------------------------------------------------------------------
+' InitPackages
+'
+'--------------------------------------------------------------------------
+Sub InitPackages(c As Context)
+
+End Sub
+
+
+
+'--------------------------------------------------------------------------
+'--------------------------------------------------------------------------
+' UnInitDevices
+'--------------------------------------------------------------------------
+Sub UnInitDevices()
+	Display.Close
+	Set Display = Nothing
+
+	Keyboard.Close
+	Set Keyboard = Nothing
+
+	Mouse.Close
+	Set Mouse = Nothing
+
+End Sub
+
+
+'--------------------------------------------------------------------------
+'--------------------------------------------------------------------------
+' UnInitPackages
+'--------------------------------------------------------------------------
+Sub UnInitPackages()
+End Sub
+
+
+'--------------------------------------------------------------------------
+' UnInitObjects
+'
+'--------------------------------------------------------------------------
+Sub UnInitObjects()
+
+	Set SessionProc = Nothing
+
+	Set List1 = Nothing
+
+	Set instruction = Nothing
+
+	Set instructionEchoClients = Nothing
+
+	Set procA = Nothing
+
+	Set procC = Nothing
+
+	Set procE = Nothing
+
+	Set cueone = Nothing
+
+	Set cueoneEchoClients = Nothing
+
+	Set oneback = Nothing
+
+	Set trialproc = Nothing
+
+	Set prob = Nothing
+
+	Set probEchoClients = Nothing
+
+	Set cuetwo = Nothing
+
+	Set cuetwoEchoClients = Nothing
+
+	Set twoback = Nothing
+
+	Set cuethree = Nothing
+
+	Set cuethreeEchoClients = Nothing
+
+	Set threeback = Nothing
+
+	Set rest = Nothing
+
+	Set restEchoClients = Nothing
+
+	Set rest1 = Nothing
+
+	Set rest1EchoClients = Nothing
+
+	Set rest2 = Nothing
+
+	Set rest2EchoClients = Nothing
+
+	Set ImageDisplay1 = Nothing
+
+	Set ImageDisplay1EchoClients = Nothing
+
+	Set ImageDisplay2 = Nothing
+
+	Set ImageDisplay2EchoClients = Nothing
+
+
+End Sub
+
+
+'--------------------------------------------------------------------------
+' Main
+'
+'--------------------------------------------------------------------------
+Sub Main()
+
+	CreateDefaultPort
+
+	' Create and initialize the default context, data file,
+	' and provide global access to the context.
+	Dim c As Context
+	Set c = New Context
+	Set c.DataFile = New DataFile
+	c.PushNewFrame
+	Set ebContext = c
+
+	' Set the log level names
+	c.SetLogLevelName 1, "Session"
+	c.SetLogLevelName 2, "Block"
+	c.SetLogLevelName 3, "Trial"
+	c.SetLogLevelName 4, "SubTrial"
+	c.SetLogLevelName 5, "LogLevel5"
+	c.SetLogLevelName 6, "LogLevel6"
+	c.SetLogLevelName 7, "LogLevel7"
+	c.SetLogLevelName 8, "LogLevel8"
+	c.SetLogLevelName 9, "LogLevel9"
+	c.SetLogLevelName 10, "LogLevel10"
+
+	' Set standard logging items
+	ebContext.SetAttrib "Experiment", "N-BACK_pre"
+	ebContext.SetAttrib "SessionDate", Date$
+	ebContext.SetAttrib "SessionTime", Time$
+	ebContext.SetAttrib "RandomSeed", PRNG.GetSeed()
+
+	If Basic.OS = ebWin32 Then
+		WinActivate "E-Run Experiment Window"
+	End If
+
+	' Get the StartupInfo
+	' Set default for GroupNumber
+	c.SetAttrib "Group", "1"
+
+
+	' Set the defaults for all of the StartupInfo
+	c.SetAttrib "Subject", "1"
+	c.SetAttrib "Session", "1"
+	c.SetAttrib "Name", ""
+	c.SetAttrib "Age", "0"
+	c.SetAttrib "Sex", "male"
+	c.SetAttrib "Handedness", "left"
+
+	Dim vAnswer As Variant
+StartupInfo_Begin:
+
+StartupInfoPrompt_Subject:
+	vAnswer = AskBox("Please enter the Subject Number (1-32767, 0=No Data Logging):", c.GetAttrib("Subject"))
+	If Not IsEmpty(vAnswer) then
+		If Not IsNumeric(vAnswer) then
+			MsgBox "Please enter an integer value"
+			GoTo StartupInfoPrompt_Subject
+		ElseIf CLng(vAnswer) < 0 Then
+			MsgBox "The value for Subject must not be less than 0"
+			GoTo StartupInfoPrompt_Subject
+		ElseIf CLng(vAnswer) > 32767 Then
+			MsgBox "The value for Subject must be not be greater than 32767"
+			GoTo StartupInfoPrompt_Subject
+		End If
+	Else
+		GoTo ExperimentAbort
+	End if
+
+	c.SetAttrib "Subject", CStr(vAnswer)
+
+StartupInfoPrompt_Session:
+	vAnswer = AskBox("Please enter the Session Number (1-32767):", c.GetAttrib("Session"))
+	If Not IsEmpty(vAnswer) then
+		If Not IsNumeric(vAnswer) then
+			MsgBox "Please enter an integer value"
+			GoTo StartupInfoPrompt_Session
+		ElseIf CLng(vAnswer) < 1 Then
+			MsgBox "The value for Session must not be less than 1"
+			GoTo StartupInfoPrompt_Session
+		ElseIf CLng(vAnswer) > 32767 Then
+			MsgBox "The value for Session must be not be greater than 32767"
+			GoTo StartupInfoPrompt_Session
+		End If
+	Else
+		GoTo ExperimentAbort
+	End if
+
+	c.SetAttrib "Session", CStr(vAnswer)
+
+StartupInfoPrompt_Name:
+	vAnswer = AskBox("Please enter Subject's Name:", c.GetAttrib("Name"))
+	If Not IsEmpty(vAnswer) then
+		If Len(CStr(vAnswer)) > 255 Then
+		MsgBox "The length for Name must be not be greater than 255"
+			GoTo StartupInfoPrompt_Name
+		End If
+	Else
+		GoTo ExperimentAbort
+	End if
+
+	c.SetAttrib "Name", CStr(vAnswer)
+
+StartupInfoPrompt_Age:
+	vAnswer = AskBox("Please enter Subject's Age (0-150):", c.GetAttrib("Age"))
+	If Not IsEmpty(vAnswer) then
+		If Not IsNumeric(vAnswer) then
+			MsgBox "Please enter an integer value"
+			GoTo StartupInfoPrompt_Age
+		ElseIf CLng(vAnswer) < 0 Then
+			MsgBox "The value for Age must not be less than 0"
+			GoTo StartupInfoPrompt_Age
+		ElseIf CLng(vAnswer) > 150 Then
+			MsgBox "The value for Age must be not be greater than 150"
+			GoTo StartupInfoPrompt_Age
+		End If
+	Else
+		GoTo ExperimentAbort
+	End if
+
+	c.SetAttrib "Age", CStr(vAnswer)
+
+StartupInfoPrompt_Sex:
+Dim arrayChoicesSex(2)
+	arrayChoicesSex(0) = "male"
+	arrayChoicesSex(1) = "female"
+	vAnswer = SelectBox(, "Please enter Subject's Sex:", arrayChoicesSex)
+	If vAnswer >= 0 then
+		c.SetAttrib "Sex", arrayChoicesSex(vAnswer)
+	Else
+		GoTo ExperimentAbort
+	End If
+
+StartupInfoPrompt_Handedness:
+Dim arrayChoicesHandedness(2)
+	arrayChoicesHandedness(0) = "left"
+	arrayChoicesHandedness(1) = "right"
+	vAnswer = SelectBox(, "Enter Subject's Handedness:", arrayChoicesHandedness)
+	If vAnswer >= 0 then
+		c.SetAttrib "Handedness", arrayChoicesHandedness(vAnswer)
+	Else
+		GoTo ExperimentAbort
+	End If
+
+	' Display the summary
+	Dim strSummary As String
+	strSummary = "Subject:    " & c.GetAttrib("Subject") & "\n"
+	strSummary = strSummary & "Session:    " & c.GetAttrib("Session") & "\n"
+	strSummary = strSummary & "Name:    " & c.GetAttrib("Name") & "\n"
+	strSummary = strSummary & "Age:    " & c.GetAttrib("Age") & "\n"
+	strSummary = strSummary & "Sex:    " & c.GetAttrib("Sex") & "\n"
+	strSummary = strSummary & "Handedness:    " & c.GetAttrib("Handedness") & "\n"
+	strSummary = strSummary & "\nContinue with the above startup info?"
+
+	Dim nSummaryAnswer As Integer
+	nSummaryAnswer = MsgBox(strSummary, ebYesNoCancel + ebQuestion, "Summary of Startup Info")
+	If nSummaryAnswer = ebNo Then
+		GoTo StartupInfo_Begin
+	ElseIf nSummaryAnswer = ebCancel Then
+		GoTo ExperimentAbort
+	End If
+
+
+	' Set the default Data Filename
+	c.DataFile.Filename = CStr(c.GetAttrib("Experiment")) & "-" & CStr(c.GetAttrib("Subject")) & "-" & CStr(c.GetAttrib("Session")) & ".txt"
+
+	' If we are logging data, then prompt to overwrite the data file if it exists
+	If CLng(c.GetAttrib("Subject")) <> 0 Then
+		If FileExists(c.DataFile.Filename) Then
+			If ebYes <> MsgBox("WARNING: The data file and/or recovery file already exists:\nFILE: " & c.DataFile.Filename & "\n\nDo you want to overwrite?", ebYesNo + ebQuestion) Then
+				GoTo ExperimentAbort
+			End If
+		End If
+	End If
+
+	' Initialize all system devices, packages, and objects
+	InitDevices c
+	InitPackages c
+	InitObjects c
+
+	' If we are logging data, then open the datafile
+	If CLng(c.GetAttrib("Subject")) <> 0 Then
+		c.DataFile.Open
+		c.LogHeader
+	End If
+
+	' Start the running of the Experiment
+	SessionProc.Run c
+
+	' Clean up the context and close the datafile
+	If CLng(c.GetAttrib("Subject")) <> 0 Then
+		c.DataFile.Close
+		' Attempt to convert the recovery file into a data file
+		Dim nConvert As Long
+		nConvert = c.DataFile.Convert(ebProgressSimple)
+		If nConvert = 0 Then
+			' Settings in E-Studio are set to not remove E-Recovery file
+		Else
+			' The datafile failed to convert!
+			MsgBox "ERROR: The datafile did not convert!\nFILE: " & c.DataFile.Filename & "\n\nIt is recommended that you recover your data with the E-Recovery utility"
+			MsgBox c.DataFile.GetLastErrorMessage()
+		End If
+	End If
+ExperimentFinish:
+
+	UnInitObjects
+
+	UnInitPackages
+	UnInitDevices
+
+ExperimentAbort:
+
+	' Clean up the context
+	c.PopFrame
+	Set c = Nothing
+	Set ebContext = Nothing
+
+	DestroyDefaultPort
+
+End Sub
+
+
+[DataSection_List1(1)]
+Weight	Nested	Procedure
+1		procA
+1		procC
+1		procE\0
+
+[DataSection_oneback(1)]
+Weight	Nested	Procedure	sti	answer
+1		trialproc	ban1.bmp	
+1		trialproc	bu1.bmp	f
+1		trialproc	dao1.bmp	f
+1		trialproc	dao2.bmp	j
+1		trialproc	dou1.bmp	f
+1		trialproc	dou2.bmp	j
+1		trialproc	du1.bmp	f
+1		trialproc	ji1.bmp	f
+1		trialproc	ji2.bmp	j
+1		trialproc	gong1.bmp	f
+1		trialproc	fu1.bmp	f
+1		trialproc	fei1.bmp	f
+1		trialproc	fei2.bmp	j
+1		trialproc	lu1.bmp	f
+1		trialproc	lu2.bmp	j
+1		trialproc	mu1.bmp	f
+1		trialproc	mu2.bmp	j
+1		trialproc	sui1.bmp	f
+1		trialproc	wan1.bmp	f
+1		trialproc	wan2.bmp	j
+1		trialproc	sha1.bmp	f
+1		trialproc	qi1.bmp	f
+1		trialproc	qi2.bmp	j
+1		trialproc	yan1.bmp	f
+1		trialproc	zhan1.bmp	f
+1		trialproc	xi1.bmp	f
+1		trialproc	xi2.bmp	j
+1		trialproc	mai1.bmp	f
+1		trialproc	mai2.bmp	j
+1		trialproc	han1.bmp	f
+1		trialproc	hao1.bmp	f
+1		trialproc	hao2.bmp	j
+1		trialproc	cai1.bmp	f
+1		trialproc	dong1.bmp	f
+1		trialproc	dong2.bmp	j
+1		trialproc	he1.bmp	f
+1		trialproc	ke1.bmp	f
+1		trialproc	ke2.bmp	j
+1		trialproc	fan1.bmp	f
+1		trialproc	li1.bmp	f
+1		trialproc	li2.bmp	j
+1		trialproc	jie1.bmp	f
+1		trialproc	cha1.bmp	f
+1		trialproc	cha2.bmp	j
+1		trialproc	chong1.bmp	f
+1		trialproc	bin1.bmp	f
+1		trialproc	hu1.bmp	f
+1		trialproc	bao1.bmp	f
+1		trialproc	bao2.bmp	j
+1		trialproc	ju1.bmp	f
+1		trialproc	yin1.bmp	f
+1		trialproc	yin2.bmp	j
+1		trialproc	kong1.bmp	f
+1		trialproc	kong2.bmp	j
+1		trialproc	yan1.bmp	f
+1		trialproc	sha1.bmp	f
+1		trialproc	sha2.bmp	j
+1		trialproc	ju1.bmp	f
+1		trialproc	cai1.bmp	f
+1		trialproc	chong1.bmp	f
+1		trialproc	chong2.bmp	j
+1		trialproc	bin1.bmp	f
+1		trialproc	bin2.bmp	j
+1		trialproc	bu1.bmp	f
+1		trialproc	fan1.bmp	f
+1		trialproc	sui1.bmp	f
+1		trialproc	sui2.bmp	j
+1		trialproc	jie1.bmp	f
+1		trialproc	zhan1.bmp	f
+1		trialproc	du1.bmp	f
+1		trialproc	du2.bmp	j
+1		trialproc	ban1.bmp	f
+1		trialproc	ban2.bmp	j\0
+
+[DataSection_twoback(1)]
+Weight	Nested	Procedure	sti	answer
+1		trialproc	yan1.bmp	
+1		trialproc	zhan1.bmp	
+1		trialproc	yan2.bmp	j
+1		trialproc	yin1.bmp	f
+1		trialproc	sui1.bmp	f
+1		trialproc	wan1.bmp	f
+1		trialproc	sui2.bmp	j
+1		trialproc	du1.bmp	f
+1		trialproc	fan1.bmp	f
+1		trialproc	du2.bmp	j
+1		trialproc	ju1.bmp	f
+1		trialproc	ke1.bmp	f
+1		trialproc	li1.bmp	f
+1		trialproc	ke2.bmp	j
+1		trialproc	chong1.bmp	f
+1		trialproc	dao1.bmp	f
+1		trialproc	chong2.bmp	j
+1		trialproc	fu1.bmp	f
+1		trialproc	gong1.bmp	f
+1		trialproc	fu2.bmp	j
+1		trialproc	ban1.bmp	f
+1		trialproc	cai1.bmp	f
+1		trialproc	ban2.bmp	j
+1		trialproc	cai2.bmp	j
+1		trialproc	kong1.bmp	f
+1		trialproc	mai1.bmp	f
+1		trialproc	mu1.bmp	f
+1		trialproc	mai2.bmp	j
+1		trialproc	cha1.bmp	f
+1		trialproc	dong1.bmp	f
+1		trialproc	cha2.bmp	j
+1		trialproc	bu1.bmp	f
+1		trialproc	dou1.bmp	f
+1		trialproc	bu2.bmp	j
+1		trialproc	bin1.bmp	f
+1		trialproc	fei1.bmp	f
+1		trialproc	han1.bmp	f
+1		trialproc	fei2.bmp	j
+1		trialproc	han2.bmp	j
+1		trialproc	bao1.bmp	f
+1		trialproc	jie1.bmp	f
+1		trialproc	bao2.bmp	j
+1		trialproc	sha1.bmp	f
+1		trialproc	xi1.bmp	f
+1		trialproc	zhan1.bmp	f
+1		trialproc	xi2.bmp	j
+1		trialproc	zhan2.bmp	j
+1		trialproc	lu1.bmp	f
+1		trialproc	qi1.bmp	f
+1		trialproc	hao1.bmp	f
+1		trialproc	qi2.bmp	j
+1		trialproc	hao2.bmp	j
+1		trialproc	he1.bmp	f
+1		trialproc	hu1.bmp	f
+1		trialproc	he2.bmp	j
+1		trialproc	ji1.bmp	f
+1		trialproc	sha1.bmp	f
+1		trialproc	ji2.bmp	j
+1		trialproc	sha2.bmp	j
+1		trialproc	jie1.bmp	f
+1		trialproc	yan1.bmp	f
+1		trialproc	jie2.bmp	j
+1		trialproc	bin1.bmp	f
+1		trialproc	dao1.bmp	f
+1		trialproc	he1.bmp	f
+1		trialproc	dong1.bmp	f
+1		trialproc	ju1.bmp	f
+1		trialproc	dong2.bmp	j
+1		trialproc	li1.bmp	f
+1		trialproc	lu1.bmp	f
+1		trialproc	li2.bmp	j
+1		trialproc	mu1.bmp	f
+1		trialproc	wan1.bmp	f
+1		trialproc	yin1.bmp	f\0
+
+[DataSection_threeback(1)]
+Weight	Nested	Procedure	sti	answer
+1		trialproc	bu1.bmp	
+1		trialproc	cha1.bmp	
+1		trialproc	dong1.bmp	
+1		trialproc	lu1.bmp	f
+1		trialproc	cha2.bmp	j
+1		trialproc	ban1.bmp	f
+1		trialproc	du1.bmp	f
+1		trialproc	hao1.bmp	f
+1		trialproc	ban2.bmp	j
+1		trialproc	cai1.bmp	f
+1		trialproc	dong1.bmp	f
+1		trialproc	he1.bmp	f
+1		trialproc	cai2.bmp	j
+1		trialproc	gong1.bmp	f
+1		trialproc	he2.bmp	j
+1		trialproc	mu1.bmp	f
+1		trialproc	qi1.bmp	f
+1		trialproc	sui1.bmp	f
+1		trialproc	wan1.bmp	f
+1		trialproc	bao1.bmp	f
+1		trialproc	fei1.bmp	f
+1		trialproc	wan2.bmp	j
+1		trialproc	bao2.bmp	j
+1		trialproc	bin1.bmp	f
+1		trialproc	dao1.bmp	f
+1		trialproc	hu1.bmp	f
+1		trialproc	bin2.bmp	j
+1		trialproc	dao2.bmp	j
+1		trialproc	ji1.bmp	f
+1		trialproc	chong1.bmp	f
+1		trialproc	fu1.bmp	f
+1		trialproc	ji2.bmp	j
+1		trialproc	han1.bmp	f
+1		trialproc	fu2.bmp	j
+1		trialproc	yan1.bmp	f
+1		trialproc	zhan1.bmp	f
+1		trialproc	xi1.bmp	f
+1		trialproc	sha1.bmp	f
+1		trialproc	zhan2.bmp	j
+1		trialproc	fan1.bmp	f
+1		trialproc	sha2.bmp	j
+1		trialproc	ju1.bmp	f
+1		trialproc	fan2.bmp	j
+1		trialproc	bu1.bmp	f
+1		trialproc	ju2.bmp	j
+1		trialproc	mai1.bmp	f
+1		trialproc	bu2.bmp	j
+1		trialproc	jie1.bmp	f
+1		trialproc	ke1.bmp	f
+1		trialproc	kong1.bmp	f
+1		trialproc	li1.bmp	f
+1		trialproc	ke2.bmp	j
+1		trialproc	dou1.bmp	f
+1		trialproc	li2.bmp	j
+1		trialproc	yin1.bmp	f
+1		trialproc	dou2.bmp	j
+1		trialproc	xi1.bmp	f
+1		trialproc	yin2.bmp	j
+1		trialproc	chong1.bmp	f
+1		trialproc	dong1.bmp	f
+1		trialproc	jie1.bmp	f
+1		trialproc	chong2.bmp	j
+1		trialproc	mu1.bmp	f
+1		trialproc	qi1.bmp	f
+1		trialproc	sui1.bmp	f
+1		trialproc	mai1.bmp	f
+1		trialproc	qi2.bmp	j
+1		trialproc	fei1.bmp	f
+1		trialproc	du1.bmp	f
+1		trialproc	gong1.bmp	f
+1		trialproc	fei2.bmp	j
+1		trialproc	du2.bmp	j
+1		trialproc	gong2.bmp	j
+1		trialproc	lu1.bmp	f
+1		trialproc	kong1.bmp	f\0

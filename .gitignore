@@ -1,0 +1,16 @@
+build/
+release/
+results/
+test-output/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+node_modules/
+*.jzip
+*.zip
+*.csv
+*.xlsx
+*.jsonl
+*.ndjson

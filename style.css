@@ -1,0 +1,42 @@
+:root {font-family: "Segoe UI", "Microsoft YaHei", sans-serif; color: #182733; background: #f4f6f7; font-synthesis: none;}
+* {box-sizing: border-box;}
+body {margin: 0;}
+[hidden] {display: none !important;}
+.shell {max-width: 820px; margin: 0 auto; padding: 48px 44px 32px;}
+.eyebrow {font-size: 12px; letter-spacing: .12em; color: #536875; margin: 0 0 14px;}
+h1 {font-size: 38px; font-weight: 650; letter-spacing: -.035em; margin: 0 0 12px;}
+h1 span {font-size: 17px; font-weight: 400; color: #72818b; margin-left: 13px; letter-spacing: 0;}
+.lead {color: #586b78; margin: 0; line-height: 1.7; font-size: 16px;}
+.facts {display: flex; flex-wrap: wrap; gap: 32px; border-bottom: 1px solid #dce3e7; padding: 25px 0; margin-bottom: 24px; color: #5c6d79; font-size: 13px;}
+.facts strong {color: #243e50; font-size: 17px; font-weight: 600; margin-right: 5px;}
+.notice {background: #faf2df; border-left: 3px solid #ad8840; padding: 12px 16px; color: #725726; font-size: 13px; line-height: 1.8;}
+h2 {font-size: 20px; font-weight: 600; margin: 30px 0 8px;}
+.muted {font-size: 13px; line-height: 1.7; color: #637582;}
+.form-grid {display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; margin: 23px 0;}
+label {display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600;}
+input, select {width: 100%; font: inherit; font-size: 15px; font-weight: 400; padding: 10px 12px; min-height: 42px; border: 1px solid #cbd6dc; border-radius: 5px; color: #1c3546; background: white;}
+input:focus, select:focus {outline: 2px solid #347596; outline-offset: 2px;}
+small {font-size: 11px; font-weight: 400; color: #75858f;}
+.actions {display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 12px;}
+button {font: inherit; font-size: 14px; font-weight: 600; color: white; border: 1px solid #224f67; background: #224f67; border-radius: 5px; padding: 12px 22px; cursor: pointer;}
+button:hover {background: #183e52;}
+button:focus-visible, summary:focus-visible {outline: 3px solid #6dabc5; outline-offset: 3px;}
+button:disabled {opacity: .45; cursor: not-allowed;}
+button.secondary {background: transparent; border-color: #c3cfd6; color: #334f60;}
+button.secondary:hover {background: #e8eef1;}
+button.armed {background: #725726; border-color: #725726; color: white;}
+button.armed:hover {background: #5f481f;}
+.caption {font-size: 12px; color: #71828d; line-height: 1.7;}
+.error {color: #a52a28; padding: 12px 0; line-height: 1.8; font-size: 14px;}
+details {margin-top: 30px; border-top: 1px solid #dce3e7; padding: 20px 0; font-size: 13px;}
+summary {cursor: pointer; color: #526b7a;}
+.history-row {display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #e1e7eb;}
+.history-row p {flex: 1 1 200px; margin: 0; line-height: 1.8;}
+.history-row button {padding: 7px 12px; font-size: 12px;}
+footer {display: flex; justify-content: space-between; font-size: 11px; color: #85939c; padding-top: 10px;}
+a {color: #526f81;}
+body.running {background: black; overflow: hidden; cursor: none;}
+#experiment {position: fixed; inset: 0; background: black; display: flex; align-items: center; justify-content: center;}
+#stage {width: 1024px; height: 768px; flex: 0 0 auto; outline: none;}
+#finished {padding-top: 110px;}
+@media (max-width: 620px) {.shell {padding: 30px 22px;} .form-grid {grid-template-columns: 1fr;} h1 {font-size: 32px;} .facts {gap: 16px;}}
