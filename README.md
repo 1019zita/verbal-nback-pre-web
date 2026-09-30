@@ -1,6 +1,6 @@
 # 言语 N-back pre：网页版 / JATOS 适配
 
-本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；2026-09-30 已备份到私有 GitHub repository，并以新 Study 部署到 MindProbe。
+本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；2026-09-30 已备份到 public GitHub repository、发布 GitHub Pages，并以新 Study 部署到 MindProbe。
 
 ## 运行
 
@@ -31,7 +31,8 @@ python scripts/build_study_assets.py
 
 | 项目 | 值 |
 |---|---|
-| GitHub | [1019zita/verbal-nback-pre-web](https://github.com/1019zita/verbal-nback-pre-web)（private，`main`） |
+| GitHub | [1019zita/verbal-nback-pre-web](https://github.com/1019zita/verbal-nback-pre-web)（public，`main`） |
+| GitHub Pages | [在线网页版](https://1019zita.github.io/verbal-nback-pre-web/) |
 | MindProbe Study | ID `28772`，UUID `0219e18d-ad8c-4bde-bed4-f4859bc536fe`，标题 `Verbal N-back pre` |
 | Component | ID `49421`，entry `index.html` |
 | Default Batch | ID `32591` |

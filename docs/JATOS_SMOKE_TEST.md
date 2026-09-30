@@ -53,7 +53,7 @@ SHA-256: 5ACD315458079E458B98C6B4F4718BD8EB499865E96794307AEC858EA26492AE
 
 ## GitHub 与 MindProbe 发布
 
-- GitHub：private repository `https://github.com/1019zita/verbal-nback-pre-web`，部署源码 commit `6e8334b0b7328996873b6b1a197c02d766981878`。
+- GitHub：public repository `https://github.com/1019zita/verbal-nback-pre-web`，部署源码 commit `6e8334b0b7328996873b6b1a197c02d766981878`；GitHub Pages 为 `https://1019zita.github.io/verbal-nback-pre-web/`。
 - MindProbe Study：ID `28772`，UUID `0219e18d-ad8c-4bde-bed4-f4859bc536fe`，标题 `Verbal N-back pre`。
 - Component：ID `49421`，entry `index.html`；Default Batch：ID `32591`。
 - import 前 health check 只看到既有三个可访问 Study；dry-run 证实新 UUID/标题无冲突，`--apply` 返回新 Study ID `28772`，未覆盖既有实验。

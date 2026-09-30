@@ -2,7 +2,7 @@
 
 ## 0.4.0-jatos.1 deployment — 2026-09-30
 
-- 建立并推送 private GitHub repository `1019zita/verbal-nback-pre-web`；部署构建固定到 commit `6e8334b0b7328996873b6b1a197c02d766981878`。
+- 建立并推送 GitHub repository `1019zita/verbal-nback-pre-web`；部署构建固定到 commit `6e8334b0b7328996873b6b1a197c02d766981878`。按用户要求将 repository 改为 public，并从 `main` 根目录发布 GitHub Pages。
 - 从该 commit 重建 study assets，更新本地 Study 正式标题，真实 JATOS 调试得到 10 条记录、5 个 trial 和字节一致的服务器/浏览器 CSV。
 - 重新由 JATOS 官方导出 JZIP；SHA-256 为 `5ACD315458079E458B98C6B4F4718BD8EB499865E96794307AEC858EA26492AE`，86 个 entries、单一 `.jas`，无结果、secret 或 source snapshot。
 - 在第三套全新 JATOS 3.11.1 实例导入最终 JZIP 并重跑通过；记录中的 `git_commit` 全部为部署 commit。
