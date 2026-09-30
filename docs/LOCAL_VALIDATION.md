@@ -55,4 +55,4 @@ Playwright 可通过 `PLAYWRIGHT_PATH` 指向已安装模块；默认使用本�
 
 ## 验收边界
 
-本轮完成可直接双击运行的本地移植、5 trial 调试模式、JATOS adapter、官方 JZIP 干净导入和自动化回归，不等于完成科研等价性或 MindProbe 生产验收。已获批把原 F/J 冲突统一为一致 Z、不一致“/”、空格继续，并用 Canvas 文字替代六张指导/阶段位图；调试模式固定截取正式 1-back 前 5 条并明确标记。原 E-Prime 双输入 mask 仲裁、计分含义和原设备显示仍需对照。GitHub 远端与 MindProbe 生产 Study 尚未建立。
+本轮完成可直接双击运行的本地移植、5 trial 调试模式、JATOS adapter、官方 JZIP 干净导入和自动化回归，不等于完成科研等价性。已获批把原 F/J 冲突统一为一致 Z、不一致“/”、空格继续，并用 Canvas 文字替代六张指导/阶段位图；调试模式固定截取正式 1-back 前 5 条并明确标记。原 E-Prime 双输入 mask 仲裁、计分含义和原设备显示仍需对照。GitHub 备份与 MindProbe 新 Study/在线 smoke 已于 2026-09-30 完成，部署证据见 `JATOS_SMOKE_TEST.md`。

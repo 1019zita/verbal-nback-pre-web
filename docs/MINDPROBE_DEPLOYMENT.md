@@ -1,6 +1,6 @@
 # MindProbe / JATOS 部署说明
 
-本文件适用于言语 N-back pre。当前没有独立远程 DEV MindProbe；本地 JATOS 3.11.1 是 DEV/test，MindProbe 是托管部署目标。当前尚未创建或选定 MindProbe Study。
+本文件适用于言语 N-back pre。当前没有独立远程 DEV MindProbe；本地 JATOS 3.11.1 是 DEV/test，MindProbe 是托管部署目标。2026-09-30 已导入全新 Study `28772`，未覆盖既有 CLT、CDT Full-Probe 或 CDT Single-Probe Study。
 
 ## 1. 发布前检查
 
@@ -27,9 +27,17 @@ python scripts/build_study_assets.py
 4. 完整运行 debug，确认 10 records、5 trials、`FINISHED` 和 CSV result file；
 5. 至少验证一次正式 222 trial 流程；
 6. 用 JATOS 官方 Study export 生成 `.jzip`，不要手工构造；
-7. 扫描 archive 并在第二个干净 JATOS 3.11.1 实例导入、重跑。
+7. 扫描 archive 并在另一套干净 JATOS 3.11.1 实例导入、重跑。
 
-本轮本地 JZIP 仅对应 `uncommitted` 构建，不能直接发布。Git commit 后必须重建与重导出。
+当前发布包：
+
+```text
+release/build/Verbal-NBack-Pre-0.4.0-jatos.1.jzip
+Git commit: 6e8334b0b7328996873b6b1a197c02d766981878
+SHA-256: 5ACD315458079E458B98C6B4F4718BD8EB499865E96794307AEC858EA26492AE
+```
+
+该包含 86 个 archive entries 和一个 `.jas`，已在第三套全新 JATOS 3.11.1 实例完成导入及真实 5-trial 调试回归；服务器与浏览器 CSV 字节一致。
 
 ## 3. 凭据
 
@@ -58,7 +66,19 @@ python scripts/jatos_deploy.py import `
   --expected-title "<CONFIRMED TITLE>"
 ```
 
-只有在人工核对服务器、JZIP title/UUID、精确 Git commit、UUID 尚不存在以及这是新建 n-back Study 后，才加 `--apply`。本项目没有可复用的 MindProbe Study ID；不得覆盖 CDT-M、Full-Probe、Single-Probe 或 CLT 的 Study。
+只有在人工核对服务器、JZIP title/UUID、精确 Git commit、UUID 尚不存在以及这是新建 n-back Study 后，才加 `--apply`。不得覆盖 CDT-M、Full-Probe、Single-Probe 或 CLT 的 Study。
+
+本次首次 import 已完成：
+
+| 项目 | 值 |
+|---|---|
+| Study | ID `28772`；UUID `0219e18d-ad8c-4bde-bed4-f4859bc536fe`；标题 `Verbal N-back pre` |
+| Component | ID `49421`；UUID `e93eb01b-5ca2-450b-9f2b-46ade85f6e3a`；entry `index.html` |
+| Default Batch | ID `32591`；UUID `7ce96386-1430-4dd9-889a-e94bcc992211` |
+| 正式链接类型 | Personal Multiple |
+| 正式入口 | `https://jatos.mindprobe.eu/publix/rdgdulJsPmb` |
+
+正式入口与 smoke link 分离。Study Code 不是 API token，可用于受试者访问；仍应按实验室招募流程发放。
 
 ## 5. 已有 Study 的资产更新
 
@@ -83,6 +103,8 @@ python scripts/jatos_deploy.py assets `
 - 早退/刷新保留 partial data且不自动续做；
 - 人工确认 Batch 和 participant link 类型、重复参与语义。
 
+2026-09-30 在线 smoke 已通过：Study Result `1257471` / Component Result `1748208` 为 `FINISHED`；事件流 10 条、trial 5 条、`run_mode=debug`、`n=1`、CSV upload success；记录中的 commit 为 `6e8334b0b7328996873b6b1a197c02d766981878`。服务器 CSV 与浏览器 CSV 的 SHA-256 均为 `cf34e8c7371336acb538bbd11a89f03b3f6e23f3be9bab3692759b50f11aa097`，页面控制台错误 0。smoke code 为 `AFXJre4As0V`，结果按要求保留。
+
 不得删除 smoke/partial results，除非用户另行明确授权。
 
 ## 7. 导出与回滚
@@ -100,8 +122,6 @@ python scripts/jatos_export_results.py `
 
 ## 仍需人工确认
 
-- GitHub 账号、repository 名和可见性；
-- MindProbe 新建 Study 的最终标题、Component/Batch 与 link 类型；
-- 精确生产 Study ID/UUID（首次 import 后生成）；
+- 正式 222-trial 在线人工验收与研究者放行；
 - 实验室批准的结果云盘目录、权限和 retention policy；
 - 科研等价性中仍标记 pending 的 E-Prime 双输入 mask/显示对照。

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0-jatos.1 deployment — 2026-09-30
+
+- 建立并推送 private GitHub repository `1019zita/verbal-nback-pre-web`；部署构建固定到 commit `6e8334b0b7328996873b6b1a197c02d766981878`。
+- 从该 commit 重建 study assets，更新本地 Study 正式标题，真实 JATOS 调试得到 10 条记录、5 个 trial 和字节一致的服务器/浏览器 CSV。
+- 重新由 JATOS 官方导出 JZIP；SHA-256 为 `5ACD315458079E458B98C6B4F4718BD8EB499865E96794307AEC858EA26492AE`，86 个 entries、单一 `.jas`，无结果、secret 或 source snapshot。
+- 在第三套全新 JATOS 3.11.1 实例导入最终 JZIP 并重跑通过；记录中的 `git_commit` 全部为部署 commit。
+- MindProbe 新建 Study `28772` / Component `49421` / Default Batch `32591`，未覆盖既有实验；在线调试为 `FINISHED`，10 条记录、5 行 CSV、上传成功、控制台错误 0，服务器与浏览器 CSV 字节一致。
+- 创建独立的 Personal Multiple 正式入口 `https://jatos.mindprobe.eu/publix/rdgdulJsPmb`；smoke 结果和测试入口保留，未删除任何 JATOS 数据。
+
 ## 0.4.0-jatos.1 — 2026-09-29
 
 - 新增与本机 IndexedDB 并行的 JATOS adapter：逐条追加 `session_start`、trial、checkpoint、final 和 CSV 上传状态，结束前排空队列并调用 JATOS 正常结束接口。

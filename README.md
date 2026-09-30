@@ -1,6 +1,6 @@
 # 言语 N-back pre：网页版 / JATOS 适配
 
-本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；尚未建立 GitHub 远端，也未部署到 MindProbe 生产 Study。
+本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；2026-09-30 已备份到私有 GitHub repository，并以新 Study 部署到 MindProbe。
 
 ## 运行
 
@@ -25,7 +25,19 @@ python scripts/import_source.py
 python scripts/build_study_assets.py
 ```
 
-构建目录为 `build/study-assets/`，Component entry 是 `index.html`。构建入口加载 `jatos.js` 和 `src/jatos-storage.js`，同时保留本机 IndexedDB、CSV/JSON 导出及完全相同的实验代码。`build-info.json` 记录版本、Git commit、入口和正式/调试 trial 数，`MANIFEST.sha256` 记录全部运行资产。当前目录尚未成为 Git repository，因此本轮构建如实记录 `git_commit: uncommitted`，不得直接作为生产部署的最终可追溯版本。
+构建目录为 `build/study-assets/`，Component entry 是 `index.html`。构建入口加载 `jatos.js` 和 `src/jatos-storage.js`，同时保留本机 IndexedDB、CSV/JSON 导出及完全相同的实验代码。`build-info.json` 记录版本、Git commit、入口和正式/调试 trial 数，`MANIFEST.sha256` 记录全部运行资产。当前 MindProbe 构建对应 Git commit `6e8334b0b7328996873b6b1a197c02d766981878`，最终官方 JZIP SHA-256 为 `5ACD315458079E458B98C6B4F4718BD8EB499865E96794307AEC858EA26492AE`。
+
+## 已部署目标
+
+| 项目 | 值 |
+|---|---|
+| GitHub | [1019zita/verbal-nback-pre-web](https://github.com/1019zita/verbal-nback-pre-web)（private，`main`） |
+| MindProbe Study | ID `28772`，UUID `0219e18d-ad8c-4bde-bed4-f4859bc536fe`，标题 `Verbal N-back pre` |
+| Component | ID `49421`，entry `index.html` |
+| Default Batch | ID `32591` |
+| 正式入口 | [Personal Multiple](https://jatos.mindprobe.eu/publix/rdgdulJsPmb) |
+
+正式入口与 2026-09-30 的在线 smoke link 分离；在线 smoke 的 5-trial 结果保留在 JATOS，不删除。部署明细见 [JATOS smoke test](docs/JATOS_SMOKE_TEST.md) 和 [MindProbe 部署说明](docs/MINDPROBE_DEPLOYMENT.md)。
 
 JATOS 结果采用追加式 NDJSON：1 条 `session_start`、每个完成 trial 1 条 `trial`、每个 block 1 条 `checkpoint`、1 条 `final`，以及 CSV 上传尝试/状态各 1 条。调试模式期望 10 条记录，正式模式期望 229 条记录。结束前排空写入队列、上传与本机相同的逐 trial CSV，再调用 JATOS 正常结束接口；任一追加或 CSV 上传失败都会阻止页面宣称服务器保存成功。详细设计、smoke 证据和部署流程见 [JATOS 存储设计](docs/JATOS_STORAGE_DESIGN.md)、[JATOS smoke test](docs/JATOS_SMOKE_TEST.md) 和 [MindProbe 部署说明](docs/MINDPROBE_DEPLOYMENT.md)。
 
@@ -106,4 +118,4 @@ python scripts/build_study_assets.py
 
 ## 后续阶段
 
-本地与 JATOS 适配已完成，下一门槛是建立/确认 GitHub repository、提交并从精确 commit 重新构建，再确认 MindProbe 新建 Study 的名称、Component、Batch 与发放链接类型。当前本地 Study ID/UUID 只属于隔离测试实例，不能作为 MindProbe 目标；本版没有伪造生产 Study ID 或链接。
+GitHub 备份、精确 commit 构建、MindProbe 新 Study 部署及在线 5-trial smoke 已完成。开始正式收集前仍需研究者完成原 E-Prime 双输入 mask/显示对照、正式 222-trial 在线人工验收，并确认实验室批准的结果云盘、权限与保存期限。空间 n-back 和其他言语版本仍属于后续独立任务，不能从本版本自动推断科研规则。
