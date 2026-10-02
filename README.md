@@ -1,6 +1,6 @@
 # 言语 N-back pre：网页版 / JATOS 适配
 
-本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；2026-09-30 已备份到 public GitHub repository、发布 GitHub Pages，并以新 Study 部署到 MindProbe。
+本项目是一个心理学工作记忆N-back实验网页版，本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；2026-09-30 已备份到 public GitHub repository、发布 GitHub Pages，并以新 Study 部署到 MindProbe。
 
 ## 运行
 
