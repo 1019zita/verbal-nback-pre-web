@@ -8,7 +8,7 @@ const root = path.resolve(__dirname,'..');
 const out = path.join(root,'test-output');
 const base = process.env.NBACK_URL || 'http://127.0.0.1:8766/';
 const cfg = require('../data/experiment.json');
-const report = {date:'2026-09-29', version:cfg.version, browser:'Edge headless', checks:[], full_run:null, realtime_short_run:null, errors:[]};
+const report = {date:'2026-10-07', version:cfg.version, browser:'Edge headless', checks:[], full_run:null, realtime_short_run:null, errors:[]};
 
 async function database(page) {
   return page.evaluate(() => new Promise((resolve,reject) => {
@@ -57,6 +57,17 @@ async function virtualFull(context, subject, screenshots) {
       if(screenshots) await page.screenshot({path:path.join(out,'stimulus.png')});
       await page.clock.runFor(100); await page.keyboard.press('z');
       await page.clock.runFor(500); await page.keyboard.press('/');
+      assert.equal(await page.getAttribute('body','data-screen'),'blank');
+      const blankPixels=await page.locator('#stage').evaluate(canvas=>{
+        const context=canvas.getContext('2d');
+        const center=context.getImageData(canvas.width/2-12,canvas.height/2-12,25,25).data;
+        const corner=context.getImageData(0,0,1,1).data;
+        let brightest=0;
+        for(let p=0;p<center.length;p+=4) brightest=Math.max(brightest,center[p]+center[p+1]+center[p+2]);
+        return {brightest,corner:[corner[0],corner[1],corner[2]]};
+      });
+      assert.ok(blankPixels.brightest>700); assert.deepEqual(blankPixels.corner,[0,0,0]);
+      if(screenshots) await page.screenshot({path:path.join(out,'blank-fixation.png')});
     }
     await page.clock.runFor(200000);
     assert.equal(await page.getAttribute('body','data-screen'),'rest');
@@ -141,7 +152,7 @@ async function virtualFull(context, subject, screenshots) {
     assert.equal(run.status,'finished'); assert.equal(run.trials.length,222); assert.equal(run.checkpoints.length,3);
     assert.equal(run.trials.filter(r=>r.warmup).length,6);
     assert.equal(run.trials.filter(r=>!r.warmup).length,216);
-    assert.equal(run.version,'0.4.0-jatos.1');
+    assert.equal(run.version,'0.4.1-jatos.1');
     assert.equal(run.trials[0].response,'z'); assert.equal(run.trials[0].blank_response_diagnostic,'/');
     for(let i=0;i<3;i++) {
       const expected=cfg.blocks.find(b=>b.n===order[i]);

@@ -26,8 +26,9 @@ test('all 222 source rows are preserved and web keys follow the approved mapping
 });
 
 test('source timing, cue scaling and source snapshots are locked', () => {
-  assert.equal(config.version,'0.4.0-jatos.1');
+  assert.equal(config.version,'0.4.1-jatos.1');
   assert.deepEqual(config.timing,{stimulus_ms:500,blank_ms:2000,stimulus_input_ms:2500});
+  assert.deepEqual(config.blank_display,{text:'+',foreground:'#ffffff',background:'#000000',font:'bold 36px Arial, sans-serif'});
   assert.deepEqual(config.frame,{width:1024,height:768});
   for (const n of ['instruction','cueone','cuetwo','cuethree']) assert.equal(config.screens[n].stretch,true);
   for (const n of ['ImageDisplay2','rest','ImageDisplay1']) assert.equal(config.screens[n].stretch,false);

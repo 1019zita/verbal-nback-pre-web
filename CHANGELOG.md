@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1-jatos.1 — 2026-10-07
+
+- 按用户批准，将每个 trial 原有 2000 ms 黑屏替换为黑色背景中央白色注视点“+”，不增加新的时间段。
+- 正式与调试模式共用同一呈现实现；500/2000/2500 ms 时序、3 个 block、222 个 trial、按键、答案、随机化和导出 schema 均保持不变。
+- 浏览器回归新增 Canvas 中央白色像素和黑色背景校验。GitHub `main` 与 `mindprobe` 两个分支同步该改动；MindProbe 线上 Study 仍保持已部署的 0.4.0-jatos.1，待后续单独验收与部署。
+
 ## 0.4.0-jatos.1 deployment — 2026-09-30
 
 - 建立并推送 GitHub repository `1019zita/verbal-nback-pre-web`；部署构建固定到 commit `6e8334b0b7328996873b6b1a197c02d766981878`。按用户要求将 repository 改为 public，并从 `main` 根目录发布 GitHub Pages。

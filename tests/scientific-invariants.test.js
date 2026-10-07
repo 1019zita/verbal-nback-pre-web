@@ -7,8 +7,9 @@ const app = fs.readFileSync(new URL('../src/app.js', import.meta.url), 'utf8');
 
 test('approved Verbal N-back pre design remains fixed', () => {
   assert.equal(config.experiment, 'Verbal_N_BACK_pre');
-  assert.equal(config.version, '0.4.0-jatos.1');
+  assert.equal(config.version, '0.4.1-jatos.1');
   assert.deepEqual(config.timing, {stimulus_ms:500, blank_ms:2000, stimulus_input_ms:2500});
+  assert.deepEqual(config.blank_display, {text:'+', foreground:'#ffffff', background:'#000000', font:'bold 36px Arial, sans-serif'});
   assert.deepEqual(config.blocks.map(block => [block.n, block.trials.length]), [[1,73], [3,75], [2,74]]);
   assert.equal(config.blocks.flatMap(block => block.trials).length, 222);
   assert.equal(config.assets.length, 71);

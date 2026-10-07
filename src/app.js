@@ -56,6 +56,16 @@ function drawTextScreen(screenConfig) {
   }
 }
 
+function drawBlankDisplay(blankDisplay) {
+  ctx.fillStyle = blankDisplay.background;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = blankDisplay.font;
+  ctx.fillStyle = blankDisplay.foreground;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(blankDisplay.text, canvas.width / 2, canvas.height / 2);
+}
+
 async function showSourcePage(object, screen, key = ' ') {
   capture = null;
   await new Promise(resolve => requestAnimationFrame(() => {
@@ -102,7 +112,7 @@ function runBlock(block, blockIndex) {
         const now = performance.now();
         if (phase === 'start') startTrial(now);
         else if (phase === 'stimulus' && now >= capture.onset + config.timing.stimulus_ms) {
-          ctx.fillStyle = 'black'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+          drawBlankDisplay(config.blank_display);
           capture.beginBlank(now); blankOnset = now; phase = 'blank'; setScreen('blank');
         } else if (phase === 'blank' && now >= blankOnset + config.timing.blank_ms) {
           const trial = block.trials[trialIndex];
@@ -187,7 +197,7 @@ async function startExperiment(runMode = 'main') {
     started_at:new Date().toISOString(),ended_at:null,status:'running',run_mode:runMode,expected_trials:runMode === 'debug' ? 5 : 222,participant,
     logging_enabled:Number(participant.Subject) !== 0,block_order:blocks.map(b=>b.n),completed_trials:0,trials:[],checkpoints:[],environment_events:[],
     environment:{user_agent:navigator.userAgent,device_pixel_ratio:devicePixelRatio,viewport:[innerWidth,innerHeight],frame:[1024,768]},
-    conventions:{key_mapping:'source_answer j -> expected_key z (match); source_answer f -> expected_key / (mismatch); Space navigates',web_answer_match:'null for blank expected_key; otherwise first stimulus-window response equals expected_key',response_window:'2500ms from stimulus onset; first keydown z//; auto-repeat events retained',prob_response:'independent diagnostic first-key observation; not an original logged prob field',rendering:'1024x768 frame; approved Canvas text screens; intrinsic stimulus images centered and clipped',randomization:runMode === 'debug' ? 'debug: fixed 1-back source block, first 5 rows, original row order' : 'unbiased crypto Fisher-Yates of [1,3,2], within-block order unchanged; not E-Prime PRNG equivalence',research_acceptance:'pending'},
+    conventions:{key_mapping:'source_answer j -> expected_key z (match); source_answer f -> expected_key / (mismatch); Space navigates',web_answer_match:'null for blank expected_key; otherwise first stimulus-window response equals expected_key',response_window:'2500ms from stimulus onset; first keydown z//; auto-repeat events retained',prob_response:'independent diagnostic first-key observation; not an original logged prob field',rendering:'1024x768 frame; approved Canvas text screens; intrinsic stimulus images centered and clipped; 2000ms blank phase shows a centered white fixation + on black',randomization:runMode === 'debug' ? 'debug: fixed 1-back source block, first 5 rows, original row order' : 'unbiased crypto Fisher-Yates of [1,3,2], within-block order unchanged; not E-Prime PRNG equivalence',research_acceptance:'pending'},
   };
   $('start').disabled = true; $('debug-mode').disabled = true;
   try {

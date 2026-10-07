@@ -1,6 +1,6 @@
 # 言语 N-back pre：网页版 / JATOS 适配
 
-本项目是一个心理学工作记忆N-back实验网页版，本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；2026-09-30 已备份到 public GitHub repository、发布 GitHub Pages，并以新 Study 部署到 MindProbe。
+本项目是一个心理学工作记忆 N-back 实验网页版，本版本仅改编 `n-back/言语N-back/N-BACK_pre.es`，源程序及同名生成代码的只读快照位于 `source/`。用户于 2026-09-27 指定先做这一版本，并于 2026-09-28 批准文字指导页、Z/“/”/空格键映射及 5 trial 调试模式。0.4.0 已完成本地版与 MindProbe/JATOS 版共用逻辑、真实本地 JATOS smoke test、官方 JZIP 导出和干净实例导入验证；2026-09-30 已备份到 public GitHub repository、发布 GitHub Pages，并以新 Study 部署到 MindProbe。2026-10-06 经用户批准，将每个 trial 原有 2000 ms 黑屏改为黑色背景中央白色注视点“+”，不增加时间段。
 
 ## 运行
 
@@ -63,7 +63,7 @@ JATOS 结果采用追加式 NDJSON：1 条 `session_start`、每个完成 trial 
 | 序列 | 逐条保留原 List 表，不重新随机生成刺激 |
 | 数量 | 1-back 73、2-back 74、3-back 75 次呈现，总计 222；各 block 前 n 个答案为空，共 216 个非空答案位 |
 | 流程 | 总指导 → 每 block 的 cue → 固定 trial 表 → Space 继续休息；最后 block 也有休息；结束画面后任意键完成；结束后自动触发 CSV 下载 |
-| 时长 | 汉字目标显示 500 ms → 黑屏目标 2000 ms；stimulus 收键窗从 stimulus onset 起 2500 ms |
+| 时长 | 汉字目标显示 500 ms → 黑色背景中央白色“+”注视点 2000 ms；stimulus 收键窗从 stimulus onset 起 2500 ms |
 | 反应 | Z（一致）/ /（不一致）；首个有效 keydown 为 stimulus-window 反应，不提前结束 trial |
 | 原材料 | 71 个汉字刺激 BMP 转为等尺寸 RGB PNG，逐张验证像素一致；原 6 张指导/阶段图片及其定义仍可在源快照和 `screens` 元数据中追溯 |
 | 呈现 | 1024×768 Canvas；经批准的指导、cue、休息和结束页由清晰文字绘制；汉字刺激按源 Stretch=No 原尺寸居中，超出 frame 由 Canvas 裁切 |
@@ -80,7 +80,7 @@ JATOS 结果采用追加式 NDJSON：1 条 `session_start`、每个完成 trial 
 1. **批准的网页键位和指导页**：原图片存在 F/J 冲突，源答案表为一致 J、不一致 F。0.2 系列经用户批准，运行时统一为一致 Z、不一致“/”、空格继续，并以 Canvas 文字替代 6 张原指导/阶段图片。每条 trial 分别保存 `source_answer`（原始 f/j）和 `expected_key`（网页 z/“/”），不伪装成原程序未改动复刻。
 2. **双输入对象**：源 stimulus 与 prob 均收键，但指定言语 pre 的 `prob.Logging(*)=0`，EBS 最终仅保存 `ImageDisplay2` 属性。本版主反应取 stimulus onset 后 2500 ms 内首个 Z/“/”；额外保存 blank 独立首键及全部 Z/“/” keydown 作为诊断。两个 E-Prime mask 如何仲裁尚未旧版实测；网页的独立观察规则明确记入 JSON，不能视为已验证等价。
 3. **准确率命名**：`web_answer_match` 是“网页主反应是否等于 `expected_key`”的比较值。`expected_key` 非空：相等 1，否则 0；为空：null。它不冒充原 E-Prime ACC，不自动为起始位决定科研评分、不新增总分/排除阈值。原始 `source_answer`、网页期望键和实际按键均保留，待确定评分后可分析。
-4. **时序与显示**：requestAnimationFrame 以实际 onset 为基准切换 500/2000 ms 阶段；帧边界会带来误差，记录实际时间。图片 Stretch 标志已保留，但原 E-Prime 1024×768 下的裁切/屏幕物理尺寸仍需人工对照。
+4. **时序与显示**：requestAnimationFrame 以实际 onset 为基准切换 500/2000 ms 阶段；2000 ms 阶段保持黑色背景，并按 2026-10-06 的用户批准在中央显示白色“+”。帧边界会带来误差，记录实际时间。图片 Stretch 标志已保留，但原 E-Prime 1024×768 下的裁切/屏幕物理尺寸仍需人工对照。
 5. **页面失焦**：只记录隐藏/失焦/缩放/全屏事件，不自动暂停、重做或排除数据。浏览器后台节流可能延长阶段，实际时序会反映；该次运行不可未经检查当作合格数据。
 6. 导航空格/任意键忽略自动重复，避免长按跨过多个页面；trial 中所有 Z/“/” keydown（含 repeat）均可观察、仅取窗口首键。旧环境键盘重复与 buffer 语义仍需对照。
 
